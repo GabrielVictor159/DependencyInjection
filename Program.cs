@@ -12,7 +12,7 @@ namespace DependencyInjection
         public static void Main(string[] args)
         {
             var serviceProvider = new ServiceCollection()
-                .AddSingleton<ICalculator, Calculator>()
+                .AddScoped<ICalculator, Calculator>()
                 .AddSingleton<ICalculatorService, CalculatorService>()
                 .BuildServiceProvider();
             var menu = serviceProvider.GetService<ICalculatorService>();
