@@ -1,0 +1,17 @@
+# Arquivo .gitignore para projeto .NET Console
+
+# Ignorar pasta "bin" gerada pela compilação
+/bin/
+
+# Ignorar pasta "obj" gerada pela compilação
+/obj/
+
+# Outros arquivos e pastas a serem ignorados
+*.userprefs
+*.suo
+*.cache
+*.dll
+*.exe
+*.pdb
+*.user
+*.vs/
