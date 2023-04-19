@@ -1,6 +1,6 @@
 namespace DependencyInjection.Services;
 
-public interface ICalculatorService
+public interface IMenuService
 {
     void Navigate();
 }
