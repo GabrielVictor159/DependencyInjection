@@ -40,7 +40,7 @@ title: Menu.cs
     Menu <|-- IMenu
        
        class IMenu{
-        IList~Options~ options[get]
+        IList~Options~ options
        }
         class Menu{
         IList~Options~ options
@@ -68,7 +68,7 @@ title: MenuService.cs
         class MenuService{
             ~IMenu~ _menu
             MenuService(IMenu menu)
-            ~int~ Options()
+             Options() ~int~
             Navigate()
             AskNumbers()
        }
@@ -90,11 +90,11 @@ title: Program.cs
     classDiagram
        
         class Program{
-           serviceProvider : ServiceCollection()
-                 serviceProvider->>serviceProvider: AddScoped() ~ICalculator~Calculator~
-                 serviceProvider->>serviceProvider: AddSingleton<IMenu, Menu>()
-                 serviceProvider->>serviceProvider: AddSingleton<IMenuService, MenuService>()
-                 serviceProvider->>serviceProvider: BuildServiceProvider()
+                 serviceProvider ~ServiceCollection~
+                 serviceProvider->serviceProvider: AddScoped() ~ICalculator~Calculator~
+                 serviceProvider->serviceProvider: AddSingleton() ~IMenu~Menu~
+                 serviceProvider->serviceProvider: AddSingleton() ~IMenuService~MenuService~
+                 serviceProvider->serviceProvider: BuildServiceProvider()
                  menu = serviceProvider.GetService() ~IMenuService~
                  menu.Navigate()
 
