@@ -91,6 +91,7 @@ title: Program.cs
        
         class Program{
                  serviceProvider ~ServiceCollection~
+                 menu
                  serviceProvider->serviceProvider: AddScoped() ~ICalculator~Calculator~
                  serviceProvider->serviceProvider: AddSingleton() ~IMenu~Menu~
                  serviceProvider->serviceProvider: AddSingleton() ~IMenuService~MenuService~
