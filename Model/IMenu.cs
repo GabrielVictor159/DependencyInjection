@@ -1,5 +1,7 @@
+using DependencyInjection.Model;
+using System.Reflection;
 public interface IMenu
 
 {
-	IList<Options> options {get;}
+    Dictionary<string, IList<Options>> optionsByCategory { get; }
 }

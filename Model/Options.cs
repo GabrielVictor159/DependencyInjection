@@ -3,12 +3,10 @@ public class Options
 
     public String Content { get; set; }
     public Delegate MethodCalculation { get; set; }
-    public String MethodString { get; set; }
-    public Options(String content, Delegate methodCalculation, String methodString)
+    public Options(String content, Delegate methodCalculation)
     {
         Content = content;
         MethodCalculation = methodCalculation;
-        MethodString = methodString;
     }
 
 

@@ -1,15 +1,15 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-public class Resultado
+public class Operation
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid Id { get; }
 
+    public string? Values { get; set; }
     [Required]
-    public decimal Result { get; set; }
-    public Operation operation { get; set; }
-    public Guid OperationId { get; set; }
-    public Resultado() { }
+    [StringLength(50)]
+    public string Method { get; set; }
 
+    public Resultado resultado { get; set; }
 }

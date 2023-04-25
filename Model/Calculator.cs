@@ -3,6 +3,7 @@ public class Calculator : ICalculator
 {
     public decimal Add(decimal x, decimal y)
     {
+
         return x + y;
     }
 
@@ -20,5 +21,6 @@ public class Calculator : ICalculator
     {
         return x - y;
     }
+
 }
 
