@@ -18,6 +18,8 @@ namespace DependencyInjection
         .AddScoped<IResultadoRepository, ResultadoRepository>()
         .AddScoped<IOperationRepository, OperationRepository>()
         .AddScoped<ICalculator, Calculator>()
+        .AddScoped<IOperationService, OperationService>()
+        .AddScoped<IResultadoService, ResultadoService>()
         .AddScoped<IMenu, Menu>()
         .AddScoped<IMenuService, MenuService>()
          );

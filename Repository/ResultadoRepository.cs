@@ -47,4 +47,17 @@ public class ResultadoRepository : IResultadoRepository
         _context.Results.RemoveRange(results);
         _context.SaveChanges();
     }
+    public List<Resultado> GetResultadosPagination(int pagina, int quantidade)
+    {
+        {
+            var resultados = _context.Results
+                .OrderByDescending(r => r.Id)
+                .Skip((pagina - 1) * quantidade)
+                .Take(quantidade)
+                .ToList();
+
+            return resultados;
+        }
+    }
+
 }

@@ -47,6 +47,18 @@ public class OperationRepository : IOperationRepository
         _context.SaveChanges();
     }
 
+    public List<Operation> GetOperationsPagination(int pagina, int quantidade)
+    {
+        {
+            var operations = _context.Operations
+                .OrderByDescending(r => r.Id)
+                .Skip((pagina - 1) * quantidade)
+                .Take(quantidade)
+                .ToList();
+
+            return operations;
+        }
+    }
 
 
 }

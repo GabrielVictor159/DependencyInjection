@@ -5,4 +5,5 @@ public interface IResultadoRepository
     Resultado Update(Resultado resultado);
     void Delete(Resultado resultado);
     void DeleteIn(IList<Resultado> results);
+    List<Resultado> GetResultadosPagination(int pagina, int quantidade);
 }

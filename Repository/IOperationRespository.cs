@@ -5,4 +5,5 @@ public interface IOperationRepository
     Operation Update(Operation operation);
     void Delete(Operation operation);
     void DeleteIn(IList<Operation> operations);
+    List<Operation> GetOperationsPagination(int pagina, int quantidade);
 }

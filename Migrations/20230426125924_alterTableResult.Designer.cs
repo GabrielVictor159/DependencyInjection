@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DependencyInjection.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230425202632_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20230426125924_alterTableResult")]
+    partial class alterTableResult
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,8 +52,9 @@ namespace DependencyInjection.Migrations
                     b.Property<Guid>("OperationId")
                         .HasColumnType("uuid");
 
-                    b.Property<decimal>("Result")
-                        .HasColumnType("numeric");
+                    b.Property<string>("Result")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 

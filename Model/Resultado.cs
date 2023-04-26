@@ -7,9 +7,14 @@ public class Resultado
     public Guid Id { get; }
 
     [Required]
-    public decimal Result { get; set; }
+    public String Result { get; set; }
     public Operation operation { get; set; }
     public Guid OperationId { get; set; }
     public Resultado() { }
+
+    public override string ToString()
+    {
+        return $"Id: {Id}, Result: {Result}, OperationId: {OperationId}";
+    }
 
 }

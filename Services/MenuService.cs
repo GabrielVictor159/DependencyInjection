@@ -129,17 +129,27 @@ public class MenuService : BackgroundService, IMenuService
                         {
                             try
                             {
-                                OperationDto dto = new OperationDto();
-                                String[] arrayDeStrings = Array.ConvertAll(parameterValues, x => x.ToString());
-                                dto.values = "[" + string.Join(",", arrayDeStrings) + "]";
-                                dto.Method = methodInfo.Name;
-                                Operation operation = _operationRepostiroy.Save(dto);
-                                var result = menuOptions[a - 1].MethodCalculation.DynamicInvoke(parameterValues);
-                                ResultadoDto dtoResultado = new ResultadoDto();
-                                dtoResultado.operation = operation;
-                                dtoResultado.Result = (decimal)result;
-                                _resultadoRepository.Save(dtoResultado);
-                                Console.WriteLine("Result: " + result);
+                                if (menuOptions[a - 1].Persist == true)
+                                {
+                                    OperationDto dto = new OperationDto();
+                                    String[] arrayDeStrings = Array.ConvertAll(parameterValues, x => x.ToString());
+                                    dto.values = "[" + string.Join(",", arrayDeStrings) + "]";
+                                    dto.Method = methodInfo.Name;
+                                    Operation operation = _operationRepostiroy.Save(dto);
+
+                                    var result = menuOptions[a - 1].MethodCalculation.DynamicInvoke(parameterValues);
+                                    ResultadoDto dtoResultado = new ResultadoDto();
+                                    dtoResultado.operation = operation;
+                                    dtoResultado.Result = result.ToString();
+                                    _resultadoRepository.Save(dtoResultado);
+                                    Console.WriteLine("Result: " + result);
+                                }
+                                else
+                                {
+                                    var result = menuOptions[a - 1].MethodCalculation.DynamicInvoke(parameterValues);
+                                    Console.WriteLine("Result: " + result);
+                                }
+
                             }
                             catch (Exception e)
                             {
@@ -166,15 +176,23 @@ public class MenuService : BackgroundService, IMenuService
                         {
                             try
                             {
-                                OperationDto dto = new OperationDto();
-                                dto.Method = methodInfo.Name;
-                                Operation operation = _operationRepostiroy.Save(dto);
-                                var result = menuOptions[a - 1].MethodCalculation.DynamicInvoke();
-                                ResultadoDto dtoResultado = new ResultadoDto();
-                                dtoResultado.operation = operation;
-                                dtoResultado.Result = (decimal)result;
-                                _resultadoRepository.Save(dtoResultado);
-                                Console.WriteLine("Result: " + result);
+                                if (menuOptions[a - 1].Persist == true)
+                                {
+                                    OperationDto dto = new OperationDto();
+                                    dto.Method = methodInfo.Name;
+                                    Operation operation = _operationRepostiroy.Save(dto);
+                                    var result = menuOptions[a - 1].MethodCalculation.DynamicInvoke();
+                                    ResultadoDto dtoResultado = new ResultadoDto();
+                                    dtoResultado.operation = operation;
+                                    dtoResultado.Result = result.ToString();
+                                    _resultadoRepository.Save(dtoResultado);
+                                    Console.WriteLine("Result: " + result);
+                                }
+                                else
+                                {
+                                    var result = menuOptions[a - 1].MethodCalculation.DynamicInvoke();
+                                    Console.WriteLine("Result: " + result);
+                                }
 
                             }
                             catch (Exception e)

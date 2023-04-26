@@ -49,8 +49,9 @@ namespace DependencyInjection.Migrations
                     b.Property<Guid>("OperationId")
                         .HasColumnType("uuid");
 
-                    b.Property<decimal>("Result")
-                        .HasColumnType("numeric");
+                    b.Property<string>("Result")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 

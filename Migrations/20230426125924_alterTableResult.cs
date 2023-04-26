@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DependencyInjection.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstMigration : Migration
+    public partial class alterTableResult : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -29,7 +29,7 @@ namespace DependencyInjection.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Result = table.Column<decimal>(type: "numeric", nullable: false),
+                    Result = table.Column<string>(type: "text", nullable: false),
                     OperationId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
