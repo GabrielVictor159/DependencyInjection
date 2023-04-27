@@ -153,7 +153,6 @@ public class MenuService : BackgroundService, IMenuService
                             }
                             catch (Exception e)
                             {
-                                Console.WriteLine(e);
                                 Console.WriteLine("Invalid Action");
                             }
                         }
