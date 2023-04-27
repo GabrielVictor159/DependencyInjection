@@ -15,25 +15,21 @@ public class ResultadoRepository : IResultadoRepository
         resultado.Result = dto.Result;
         _context.Add(resultado);
         _context.SaveChanges();
-        Resultado operationResult = _context.Results.Where(b => b.Id == resultado.Id).First();
-        return operationResult;
+        return resultado;
     }
 
     public IList<Resultado> SaveIn(IList<Resultado> resultados)
     {
         _context.AddRange(resultados);
         _context.SaveChanges();
-        IList<Guid> ids = resultados.Select(p => p.Id).ToList();
-        IList<Resultado> resultadosResult = _context.Results.Where(b => ids.Contains(b.Id)).ToList();
-        return resultadosResult;
+        return resultados;
     }
 
     public Resultado Update(Resultado resultado)
     {
         _context.Add(resultado);
         _context.SaveChanges();
-        Resultado resultadosResult = _context.Results.Where(b => b.Id == resultado.Id).First();
-        return resultadosResult;
+        return resultado;
     }
 
     public void Delete(Resultado resultado)

@@ -3,8 +3,8 @@ using DependencyInjection.Model;
 
 public class ApplicationDbContext : DbContext
 {
-    public DbSet<Resultado> Results { get; set; }
-    public DbSet<Operation> Operations { get; set; }
+    public DbSet<Resultado> Results => Set<Resultado>();
+    public DbSet<Operation> Operations => Set<Operation>();
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseNpgsql(@"Server=db; Port=5432; Database=postgres; Uid=postgres; Pwd=postgres;");
